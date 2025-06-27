@@ -34,7 +34,7 @@ function Sophisticated() {
       }}
     >
       {/* Mobile background override */}
-      <style>
+      <style >
         {`
           @media (max-width: 768px) {
             .sophisticated {
@@ -45,9 +45,9 @@ function Sophisticated() {
       </style>
 
       {/* Text Content */}
-      <div className="max-w-md sm:max-w-2xl">
+      <div className="max-w-md sm:max-w-2xl" >
         <p className="text-sm uppercase tracking-widest font-medium mb-2">Polo Ralph Lauren</p>
-        <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-4 tracking-wider">
+        <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-4 tracking-wider" style={{ fontFamily: 'LeJeune' }}>
           Sophisticated <br /> Sportswear
         </h1>
         <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-6">
@@ -56,8 +56,8 @@ function Sophisticated() {
         <button className="px-6 py-2 cursor-pointer text-sm font-medium border border-white hover:bg-white hover:text-black transition-all duration-300">
           EXPLORE NOW
         </button>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }
 

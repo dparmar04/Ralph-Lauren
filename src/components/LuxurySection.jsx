@@ -29,46 +29,42 @@ function LuxurySection() {
     { image: '/img1.png', label: 'Purple Label' },
     { image: '/img2.png', label: 'Collection' },
     { image: '/img3.png', label: "Men’s" },
-    // add more slides as needed
   ];
 
   return (
-    <section className="px-6 sm:px-12 py-16 bg-white">
-
-      <div className="flex flex-col md:flex-row justify-between md:items-start md:gap-10">
-
-        <div className="hidden md:flex md:flex-col w-full max-w-xs">
-          <p className="text-sm uppercase tracking-widest">The World</p>
-          <h2 className="text-4xl font-semibold">of Luxury</h2>
-          <p className="mt-4 text-gray-600">
-            Explore seasonal collections, iconic accessories, and more
+    <section className="bg-white py-20 px-6 sm:px-10" style={{ fontFamily: 'LeJeune' }}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center text-center md:text-left gap-12 w-full">
+        {/* Text Section */}
+        <div className="md:w-1/3 w-full !font-LeJeune text-[#041e3a] ">
+          <p className="text-xl tracking-widest">The World</p>
+          <h1 className="text-5xl font-serif font-medium mt-1">of Luxury</h1>
+          <p className="mt-6 text-gray-600 max-w-xs leading-relaxed">
+            Explore seasonal collections, iconic accessories, and more.
           </p>
         </div>
 
-        {/* Carousel */}
-        <div className="relative w-1/2">
-          {/* Custom Nav Buttons */}
+        {/* Carousel Section */}
+        <div className="relative md:w-2/3 w-full">
+          {/* Nav Arrows */}
           <button
             ref={prevRef}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 text-white p-5 rounded-full hover:bg-gray-800 transition-all ${isStart ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white text-black p-2 rounded-full shadow-md transition ${isStart ? "opacity-0 pointer-events-none" : "opacity-100"}`}
           >
-            <BsArrowLeft size={25} />
+            <BsArrowLeft size={20} />
           </button>
 
           <button
             ref={nextRef}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/30 text-white p-5 rounded-full hover:bg-gray-800 transition-all ${isEnd ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white text-black p-2 rounded-full shadow-md transition ${isEnd ? "opacity-0 pointer-events-none" : "opacity-100"}`}
           >
-            <BsArrowRight size={25} />
+            <BsArrowRight size={20} />
           </button>
 
           <Swiper
             modules={[Navigation]}
             onSwiper={setSwiperInstance}
             spaceBetween={20}
-            slidesPerView={1.2}
+            slidesPerView={1}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
@@ -77,39 +73,39 @@ function LuxurySection() {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
             }}
-            speed={800}
+            speed={600}
             breakpoints={{
-              640: {
-                slidesPerView: 2.2,
-                slidesPerGroup: 1,
-              },
               768: {
-                slidesPerView: 3.2,
-                slidesPerGroup: 2
+                slidesPerView: 1.2,
               },
               1024: {
-                slidesPerView: 4.2,
-                slidesPerGroup: 4
-              },
-              1280: {
-                slidesPerView: 5.2,
-                slidesPerGroup: 4
+                slidesPerView: 2.4,
               },
             }}
           >
             {slides.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="relative w-[full] lg:h-[350px] overflow-hidden group">
-                  {/* Image */}
-                  <img
-                    src={item.image}
-                    alt={`outfit-${index}`}
-                    className="w-full h-full object-cover transition-transform duration-500"
-                  />
+                <div className="relative overflow-hidden group w-full">
+                  {/* Fixed height wrapper */}
+                  <div className="w-full h-[420px] min-h-[420px]">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white text-lg font-medium drop-shadow-md">
+                    {item.label}
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Optional underline */}
+          <div className="mt-6 h-[2px] bg-gray-200 w-full relative">
+            <div className="absolute left-0 w-[33%] h-full bg-gray-800 transition-all duration-300" />
+          </div>
         </div>
       </div>
     </section>

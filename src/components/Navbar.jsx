@@ -3,10 +3,8 @@ import {
   FiMenu,
   FiX,
   FiMessageCircle,
-  FiSearch,
-  FiHeart,
 } from "react-icons/fi";
-import { PiBagLight } from "react-icons/pi";
+import { PiBagLight, PiHeartLight, PiMagnifyingGlassLight } from "react-icons/pi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,12 +28,12 @@ const Navbar = () => {
     >
       <div className="px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
         {/* Logo */}
-        <h1 className="font-LeJeune text-2xl uppercase tracking-widest font-light">
+        <h1 className="text-2xl uppercase tracking-widest font-light" style={{ fontFamily: 'LeJeune' }}>
           Ralph Lauren
         </h1>
 
         {/* Desktop Nav - Hidden below lg (1024px) */}
-        <nav className="hidden lg:flex gap-x-8 text-xs font-light text-nowrap">
+        <nav className="hidden uppercase lg:flex gap-x-8 text-xs font-light text-nowrap" style={{ fontFamily: 'Poppins' }}>
           <a href="#">Men</a>
           <a href="#">Women</a>
           <a href="#">Kids & Baby</a>
@@ -49,8 +47,8 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           {/* Desktop icons - Hidden below lg */}
           <div className="hidden lg:flex gap-4 text-sm">
-            <FiSearch className="size-5" />
-            <FiHeart className="size-5" />
+            <PiMagnifyingGlassLight className="size-5" />
+            <PiHeartLight className="size-5" />
             <PiBagLight className="size-5" />
           </div>
 

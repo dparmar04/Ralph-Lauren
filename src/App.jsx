@@ -3,7 +3,8 @@ import Hero from './components/Hero'
 import LuxurySection from './components/LuxurySection.jsx'
 import Navbar from './components/Navbar'
 import Showcase from './components/Showcase'
-import Sophisticated from './components/Sophisticated.jsx'
+import Sophisticated from './components/Sophisticated'
+import Footer from './components/Footer.jsx'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Sophisticated />
       <Golf />
       <LuxurySection />
+      <Footer />
     </div>
   )
 }
